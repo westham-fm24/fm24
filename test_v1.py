@@ -90,15 +90,24 @@ def evaluate_metric_quality(value, thresholds):
     if pd.isna(value):
         return None
     for quality, thr_str in thresholds.items():
-        thr = thr_str.replace('–','-').strip()
-        if thr.startswith('≥') and value >= float(thr.lstrip('≥').strip()):
-            return quality
-        if thr.startswith('≤') and value <= float(thr.lstrip('≤').strip()):
-            return quality
+        thr = thr_str.replace('–', '-').replace('%', '').strip()
+        if thr.startswith('≥'):
+            try:
+                return quality if value >= float(thr.lstrip('≥').strip()) else None
+            except:
+                continue
+        if thr.startswith('≤'):
+            try:
+                return quality if value <= float(thr.lstrip('≤').strip()) else None
+            except:
+                continue
         if '-' in thr:
-            low, high = [float(x) for x in thr.split('-',1)]
-            if low <= value <= high:
-                return quality
+            try:
+                low, high = [float(x.strip()) for x in thr.split('-', 1)]
+                if low <= value <= high:
+                    return quality
+            except:
+                continue
     return None
 
 # ─── Map roles to their performance metrics ─────────────────────────────────
