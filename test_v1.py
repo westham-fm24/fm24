@@ -15,19 +15,19 @@ new_directory         = r'D:\OneDrive\Yohhan\dz\FM23\new'
 af_metrics = {
     "xG":                {"Elite": "≥ 0.60", "Good": "0.40 – 0.59", "Average": "0.25 – 0.39"},
     "Shot/90":           {"Elite": "≥ 4.0",  "Good": "3.0 – 3.9",    "Average": "2.0 – 2.9"},
-    "ShT":               {"Elite": "≥ 60%", "Good": "50% – 59%",  "Average": "40% – 49%"},
+    "ShT":               {"Elite": "≥ 60",   "Good": "40 – 59",      "Average": "25 – 39"},
     "NP-xG/90":          {"Elite": "≥ 0.60", "Good": "0.40 – 0.59", "Average": "0.25 – 0.39"},
-    "Pressure Success %": {"Elite": "≥ 33%", "Good": "28% – 32%",  "Average": "22% – 27%"},
+    "Pres C/90": {"Elite": "≥ 8.0", "Good": "6.0 – 7.9",    "Average": "4.0 – 5.9"},
     "Poss Lost/90":      {"Elite": "≤ 10",  "Good": "11 – 14",     "Average": "15 – 18"}
 }
 
 w_metrics = {
     "Drb/90":            {"Elite": "≥ 5.0",  "Good": "3.0 – 4.9",   "Average": "1.5 – 2.9"},
     "xA/90":             {"Elite": "≥ 0.35", "Good": "0.20 – 0.34", "Average": "0.10 – 0.19"},
-    "ShT":               {"Elite": "≥ 60%",  "Good": "50% – 59%",  "Average": "40% – 49%"},
+    "ShT":               {"Elite": "≥ 60",   "Good": "40 – 59",      "Average": "25 – 39"},
     "Pr passes/90":      {"Elite": "≥ 5.0",  "Good": "3.0 – 4.9",   "Average": "1.5 – 2.9"},
     "Sprints/90":        {"Elite": "≥ 20",   "Good": "15 – 19",     "Average": "10 – 14"},
-    "Key Passes/90":     {"Elite": "≥ 2.5",  "Good": "1.5 – 2.4",   "Average": "1.0 – 1.4"},
+    "K Ps/90":     {"Elite": "≥ 2.5",  "Good": "1.5 – 2.4",   "Average": "1.0 – 1.4"},
     "Poss Lost/90":      {"Elite": "≤ 10",   "Good": "11 – 14",     "Average": "15 – 18"}
 }
 
@@ -37,8 +37,8 @@ cm_metrics = {
     "Tck/90":            {"Elite": "≥ 3.0",  "Good": "2.0 – 2.9",   "Average": "1.0 – 1.9"},
     "xA/90":             {"Elite": "≥ 0.30", "Good": "0.20 – 0.29", "Average": "0.10 – 0.19"},
     "Poss Won/90":       {"Elite": "≥ 7.0",  "Good": "5.0 – 6.9",   "Average": "3.0 – 4.9"},
-    "Key Passes/90":     {"Elite": "≥ 2.5",  "Good": "1.5 – 2.4",   "Average": "1.0 – 1.4"},
-    "Pressures/90":      {"Elite": "≥ 20",   "Good": "15 – 19",     "Average": "10 – 14"},
+    "K Ps/90":     {"Elite": "≥ 2.5",  "Good": "1.5 – 2.4",   "Average": "1.0 – 1.4"},
+    "Pres C/90":      {"Elite": "≥ 20",   "Good": "15 – 19",     "Average": "10 – 14"},
     "Poss Lost/90":      {"Elite": "≤ 10",   "Good": "11 – 14",     "Average": "15 – 18"}
 }
 
@@ -48,7 +48,7 @@ hb_metrics = {
     "Pas %":             {"Elite": "≥ 90%",  "Good": "85% – 89%",  "Average": "80% – 84%"},
     "Poss Won/90":       {"Elite": "≥ 8.0",  "Good": "6.0 – 7.9",   "Average": "4.0 – 5.9"},
     "Clr/90":            {"Elite": "≥ 2.0",  "Good": "1.0 – 1.9",   "Average": "0.5 – 0.9"},
-    "Pressures/90":      {"Elite": "≥ 20",   "Good": "15 – 19",     "Average": "10 – 14"},
+    "Pres C/90":      {"Elite": "≥ 15",   "Good": "10 – 14",     "Average": "5 – 9"},
     "Poss Lost/90":      {"Elite": "≤ 8",    "Good": "9 – 12",      "Average": "13 – 16"}
 }
 
@@ -58,7 +58,7 @@ l_metrics = {
     "Int/90":            {"Elite": "≥ 2.5",  "Good": "1.5 – 2.4",   "Average": "0.5 – 1.4"},
     "Pas %":             {"Elite": "≥ 90%",  "Good": "85% – 89%",  "Average": "80% – 84%"},
     "Clr/90":            {"Elite": "≥ 4.0",  "Good": "2.5 – 3.9",   "Average": "1.0 – 2.4"},
-    "Pressures/90":      {"Elite": "≥ 15",   "Good": "10 – 14",     "Average": "5 – 9"},
+    "Pres C/90":      {"Elite": "≥ 15",   "Good": "10 – 14",     "Average": "5 – 9"},
     "Poss Lost/90":      {"Elite": "≤ 8",    "Good": "9 – 12",      "Average": "13 – 16"}
 }
 
@@ -68,7 +68,7 @@ ifb_metrics = {
     "Int/90":            {"Elite": "≥ 2.5",  "Good": "1.5 – 2.4",   "Average": "0.5 – 1.4"},
     "Pas %":             {"Elite": "≥ 90%",  "Good": "85% – 89%",  "Average": "80% – 84%"},
     "Poss Won/90":       {"Elite": "≥ 8.0",  "Good": "6.0 – 7.9",   "Average": "4.0 – 5.9"},
-    "Pressures/90":      {"Elite": "≥ 20",   "Good": "15 – 19",     "Average": "10 – 14"},
+    "Pres C/90":      {"Elite": "≥ 22",   "Good": "16 – 21",     "Average": "10 – 15"},
     "Poss Lost/90":      {"Elite": "≤ 8",    "Good": "9 – 12",      "Average": "13 – 16"}
 }
 
@@ -112,12 +112,12 @@ def evaluate_metric_quality(value, thresholds):
 
 # ─── Map roles to their performance metrics ─────────────────────────────────
 role_performance_metrics = {
-    "AF":  ["xG","Shot/90","ShT","NP-xG/90","Pressure Success %","Poss Lost/90"],
-    "W":   ["Drb/90","xA/90","ShT","Pr passes/90","Sprints/90","Key Passes/90","Poss Lost/90"],
-    "CM":  ["Pr passes/90","Pas %","Tck/90","xA/90","Poss Won/90","Key Passes/90","Pressures/90","Poss Lost/90"],
-    "HB":  ["Tck/90","Int/90","Pas %","Poss Won/90","Clr/90","Pressures/90","Poss Lost/90"],
-    "L":   ["Pr passes/90","Tck/90","Int/90","Pas %","Clr/90","Pressures/90","Poss Lost/90"],
-    "IFB": ["Pr passes/90","Tck/90","Int/90","Pas %","Poss Won/90","Pressures/90","Poss Lost/90"],
+    "AF":  ["xG","Shot/90","ShT","NP-xG/90","Pres C/90","Poss Lost/90"],
+    "W":   ["Drb/90","xA/90","ShT","Pr passes/90","Sprints/90","K Ps/90","Poss Lost/90"],
+    "CM":  ["Pr passes/90","Pas %","Tck/90","xA/90","Poss Won/90","K Ps/90","Pres C/90","Poss Lost/90"],
+    "HB":  ["Tck/90","Int/90","Pas %","Poss Won/90","Clr/90","Pres C/90","Poss Lost/90"],
+    "L":   ["Pr passes/90","Tck/90","Int/90","Pas %","Clr/90","Pres C/90","Poss Lost/90"],
+    "IFB": ["Pr passes/90","Tck/90","Int/90","Pas %","Poss Won/90","Pres C/90","Poss Lost/90"],
     "SK":  ["Saves/90","xSv %","xGP/90","Pas %","Clr/90"]
 }
 
@@ -398,11 +398,11 @@ def main():
 
     # Added performance metrics
     'xG', 'Shot/90', 'ShT', 'NP-xG/90',
-    'Pressure Success %', 'Poss Lost/90',
+    'Pres C/90', 'Poss Lost/90',
     'Drb/90', 'xA/90', 'Pr passes/90',
-    'Sprints/90', 'Key Passes/90',
+    'Sprints/90', 'K Ps/90',
     'Pas %', 'Tck/90', 'Poss Won/90',
-    'Pressures/90', 'Int/90', 'Clr/90',
+    'Pres C/90', 'Int/90', 'Clr/90',
     'Saves/90', 'xSv %', 'xGP/90'
     ]
     preprocess_columns(squad, cols_to_prep)
