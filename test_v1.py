@@ -397,7 +397,7 @@ def main():
     squad = adjust_player_scores(squad, ideal_performance_metrics, role_performance_metrics)
 
     cols = [ 'Transfer Value', 'Position', 'Name', 'Age',
-        'SK', 'SK_adj', 'FB', 'FB_adj','WBR','WBR_adj', 'BPD', 'BPD_adj', 'BWM', 'BWM_adj', 'REG', 'REG_adj', 'AM', 'AM_adj', 'TQ', 'TQ_adj', 'CF', 'CF_adj',
+        'SK', 'SK_adj', 'IFB', 'IFB_adj','L','L_adj', 'HB', 'HB_adj', 'CM', 'CM_adj', 'W', 'W_adj', 'AF', 'AF_adj',
         'Height', 'Club','Salary' ]
     html = generate_html(squad[cols])
     save_and_open_html(html, new_directory)
