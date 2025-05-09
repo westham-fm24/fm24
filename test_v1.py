@@ -297,6 +297,7 @@ def main():
 
     
     squad_rawdata = calculate_player_scores(squad_rawdata)
+    {
     "AF": ["xG", "Shot/90", "ShT", "NP-xG/90", "Pressure Success %", "Poss Lost/90"],
     "W": ["Drb/90", "xA/90", "ShT", "Pr passes/90", "Sprints/90", "Key Passes/90", "Poss Lost/90"],
     "CM": ["Pr passes/90", "Pas %", "Tck/90", "xA/90", "Poss Won/90", "Key Passes/90", "Pressures/90", "Poss Lost/90"],
@@ -304,7 +305,7 @@ def main():
     "L": ["Pr passes/90", "Tck/90", "Int/90", "Pas %", "Clr/90", "Pressures/90", "Poss Lost/90"],
     "IFB": ["Pr passes/90", "Tck/90", "Int/90", "Pas %", "Poss Won/90", "Pressures/90", "Poss Lost/90"],
     "SK": ["Saves/90", "xSv %", "xGP/90", "Pas %", "Clr/90"]
-}
+    }
 
     html_content = generate_html(squad_rawdata[['Transfer Value', 'Position', 'Name', 'Age',
         'SK', 'IFB', 'L', 'HB', 'CM', 'W', 'AF',
