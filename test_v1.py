@@ -141,15 +141,24 @@ def move_files(src, dest):
     print(f"Moved {len(html_files)} files.")
 
 def handle_range(value):
-    if isinstance(value, str) and '-' in value:
-        parts = value.split('-')
-        if len(parts)==2 and parts[0].isdigit() and parts[1].isdigit():
-            low,high = map(int, parts)
-            return (low+high)/2
+    if isinstance(value, str):
+        value = value.strip().replace(',', '')
+        if value == '-' or value == '':
+            return 0.0
+        if value.endswith('%'):
+            try:
+                return float(value[:-1])
+            except ValueError:
+                return 0.0
+        try:
+            return float(value)
+        except ValueError:
+            return 0.0
     try:
         return float(value)
-    except:
-        return None
+    except (ValueError, TypeError):
+        return 0.0
+
 
 def load_latest_file(directory):
     latest = max(glob.glob(os.path.join(directory,'*')), key=os.path.getctime)
@@ -387,7 +396,9 @@ def main():
     squad = calculate_player_scores(squad)
     squad = adjust_player_scores(squad, ideal_performance_metrics, role_performance_metrics)
 
-    cols = [ 'Transfer Value','Position','Name','Age', … 'AF','AF_adj','Height','Club','Salary' ]
+    cols = [ 'Transfer Value', 'Position', 'Name', 'Age',
+        'SK', 'SK_adj', 'FB', 'FB_adj','WBR','WBR_adj', 'BPD', 'BPD_adj', 'BWM', 'BWM_adj', 'REG', 'REG_adj', 'AM', 'AM_adj', 'TQ', 'TQ_adj', 'CF', 'CF_adj',
+        'Height', 'Club','Salary' ]
     html = generate_html(squad[cols])
     save_and_open_html(html, new_directory)
     delete_files(destination_directory)
