@@ -59,69 +59,55 @@ def calculate_player_scores(data):
     and store it in a new column named after the role.
     """
     roles_weights = {
-    "CF": {
-        "Acc": 90, "Pac": 90, "Ant": 90, "Cmp": 50, "Dec": 90,
-        "Dri": 50, "Fin": 90, "Fir": 90, "OtB": 100, "Tec": 50,
-        "Pas": 50, "Str": 50, "Agg": 90, "Sta": 90, "Wor": 90,
-        "Vis": 20, "Cmd": 0, "Ref": 0, "1v1": 10, "TRO": 0,
-        "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 0, "Tck": 0
-    },
-    "TQ": {
-        "Acc": 90, "Pac": 90, "Ant": 90, "Cmp": 100, "Dec": 90,
-        "Dri": 90, "Fin": 50, "Fir": 90, "OtB": 100, "Tec": 100,
-        "Pas": 90, "Str": 20, "Agg": 20, "Sta": 50, "Wor": 50,
-        "Vis": 100, "Cmd": 0, "Ref": 0, "1v1": 10, "TRO": 0,
-        "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 0, "Tck": 0
-    },
-    "AM": {
-        "Acc": 50, "Pac": 50, "Ant": 90, "Cmp": 90, "Dec": 90,
-        "Dri": 50, "Fin": 20, "Fir": 90, "OtB": 90, "Tec": 90,
-        "Pas": 90, "Str": 20, "Agg": 20, "Sta": 50, "Wor": 90,
-        "Vis": 90, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
-        "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 0, "Tck": 90
-    },
-    "REG": {
-        "Acc": 90, "Pac": 90, "Ant": 100, "Cmp": 100, "Dec": 100,
-        "Dri": 90, "Fin": 0, "Fir": 90, "OtB": 90, "Tec": 100,
-        "Pas": 100, "Str": 20, "Agg": 20, "Sta": 90, "Wor": 90,
-        "Vis": 90, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
-        "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 20, "Tck": 90
-    },
-    "BWM": {
-        "Acc": 50, "Pac": 50, "Ant": 90, "Cmp": 90, "Dec": 90,
-        "Dri": 20, "Fin": 0, "Fir": 50, "OtB": 50, "Tec": 20,
-        "Pas": 50, "Str": 50, "Agg": 100, "Sta": 100, "Wor": 100,
-        "Vis": 0, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
-        "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 50, "Tck": 100
-    },
-    "BPD": {
-        "Acc": 20, "Pac": 20, "Ant": 90, "Cmp": 100, "Dec": 90,
-        "Dri": 20, "Fin": 0, "Fir": 50, "OtB": 20, "Tec": 90,
-        "Pas": 100, "Str": 90, "Agg": 50, "Sta": 50, "Wor": 50,
-        "Vis": 90, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
-        "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 90, "Tck": 90
-    },
-    "FB": {
-        "Acc": 100, "Pac": 100, "Ant": 90, "Cmp": 50, "Dec": 90,
-        "Dri": 100, "Fin": 0, "Fir": 50, "OtB": 90, "Tec": 90,
-        "Pas": 90, "Str": 50, "Agg": 50, "Sta": 100, "Wor": 100,
-        "Vis": 50, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
-        "Kic": 0, "Thr": 0, "Cor": 20, "Mar": 50, "Tck": 90
-    },
-    "WBR": {
+        "AF": {
     "Acc": 100, "Pac": 100, "Ant": 90, "Cmp": 50, "Dec": 90,
-    "Dri": 100, "Fin": 0, "Fir": 50, "OtB": 90, "Tec": 90,
-    "Pas": 90, "Str": 50, "Agg": 50, "Sta": 100, "Wor": 100,
+    "Dri": 90, "Fin": 100, "Fir": 90, "OtB": 100, "Tec": 90,
+    "Pas": 50, "Str": 50, "Agg": 90, "Sta": 90, "Wor": 90,
     "Vis": 50, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
-    "Kic": 0, "Thr": 0, "Cor": 50, "Mar": 50, "Tck": 90
-    },
-    "SK": {
-        "Acc": 90, "Pac": 20, "Ant": 50, "Cmp": 50, "Dec": 50,
-        "Dri": 0, "Fin": 0, "Fir": 20, "OtB": 0, "Tec": 0,
-        "Pas": 50, "Str": 20, "Agg": 0, "Sta": 0, "Wor": 0,
-        "Vis": 0, "Cmd": 90, "Ref": 100, "1v1": 100, "TRO": 20,
-        "Kic": 90, "Thr": 0, "Cor": 0, "Mar": 0, "Tck": 0
-    }
+    "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 0, "Tck": 0
+  },
+        "W": {
+    "Acc": 100, "Pac": 100, "Ant": 90, "Cmp": 50, "Dec": 90,
+    "Dri": 100, "Fin": 50, "Fir": 90, "OtB": 90, "Tec": 90,
+    "Pas": 90, "Str": 50, "Agg": 50, "Sta": 100, "Wor": 90,
+    "Vis": 90, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 50, "Mar": 20, "Tck": 20
+  },
+        "CM": {
+    "Acc": 90, "Pac": 90, "Ant": 90, "Cmp": 100, "Dec": 100,
+    "Dri": 50, "Fin": 20, "Fir": 90, "OtB": 90, "Tec": 90,
+    "Pas": 100, "Str": 50, "Agg": 50, "Sta": 90, "Wor": 90,
+    "Vis": 90, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 20, "Mar": 20, "Tck": 90
+  },
+        "HB": {
+    "Acc": 50, "Pac": 50, "Ant": 90, "Cmp": 90, "Dec": 100,
+    "Dri": 20, "Fin": 0, "Fir": 90, "OtB": 50, "Tec": 50,
+    "Pas": 90, "Str": 90, "Agg": 50, "Sta": 90, "Wor": 100,
+    "Vis": 50, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 90, "Tck": 100
+  },
+        "L": {
+    "Acc": 90, "Pac": 90, "Ant": 100, "Cmp": 100, "Dec": 100,
+    "Dri": 90, "Fin": 0, "Fir": 90, "OtB": 90, "Tec": 90,
+    "Pas": 100, "Str": 90, "Agg": 50, "Sta": 90, "Wor": 90,
+    "Vis": 90, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 90, "Tck": 90
+  },
+        "IFB": {
+    "Acc": 90, "Pac": 90, "Ant": 90, "Cmp": 90, "Dec": 90,
+    "Dri": 90, "Fin": 0, "Fir": 90, "OtB": 90, "Tec": 90,
+    "Pas": 90, "Str": 70, "Agg": 50, "Sta": 100, "Wor": 100,
+    "Vis": 70, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 20, "Mar": 50, "Tck": 90
+  },
+        "SK": {
+    "Acc": 90, "Pac": 50, "Ant": 90, "Cmp": 90, "Dec": 90,
+    "Dri": 50, "Fin": 0, "Fir": 90, "OtB": 0, "Tec": 50,
+    "Pas": 90, "Str": 70, "Agg": 20, "Sta": 50, "Wor": 50,
+    "Vis": 70, "Cmd": 90, "Ref": 100, "1v1": 100, "TRO": 90,
+    "Kic": 50, "Thr": 90, "Cor": 0, "Mar": 0, "Tck": 0
+  }
     }
 
     # For each role, compute the Tactical True CA
@@ -288,46 +274,6 @@ def delete_files(directory):
         os.remove(file)
         print(f"Deleted file: {file}")
 
-def apply_smartboost_to_all_roles(df, role_percentile_map):
-    df = df.copy()
-    weights = {"α": 1.0, "β": 1.5, "γ": 1.2}
-
-    for role, metrics in role_percentile_map.items():
-        percentile_cols = [col for m in metrics for col in df.columns if m in col and "%" in col and role in col]
-        df[f"{role}_avg_percentile"] = df[percentile_cols].mean(axis=1)
-        df[f"{role}_std_percentile"] = df[percentile_cols].std(axis=1)
-
-        # Component formulas
-        def consistency(stddev):
-            return max(0, 10 - stddev)
-
-        def impact(row):
-            try:
-                return ((row.get("Gls", 0) + row.get("Ast", 0)) / (row.get("Mins", 1) / 90)) * 10
-            except:
-                return 0
-
-        def conversion(row):
-            try:
-                return max(0, row.get("Gls", 0) - row.get("xG", 0)) * 5
-            except:
-                return 0
-
-        def smartboost(row):
-            if row.get(f"{role}_avg_percentile", 0) < 90:
-                return 0
-            return round(
-                weights["α"] * consistency(row.get(f"{role}_std_percentile", 0)) +
-                weights["β"] * impact(row) +
-                weights["γ"] * conversion(row),
-                2
-            )
-
-        df[f"{role}_SmartBoost"] = df.apply(smartboost, axis=1)
-        df[f"{role}_adj"] = df[role] + df[f"{role}_SmartBoost"]
-
-    return df
-
 
 def main():
     move_files(source_directory, destination_directory)
@@ -340,37 +286,29 @@ def main():
     'Agi', 'Agg', 'Aer',
 
     # Added performance metrics
-    'xG', 'Gls', 'Mins', 'Ast', 'Shot/90', 'ShT', 'Drb/90', 'Pr passes/90', 'NP-xG/90',
-    'Tck/90', 'Clr/90', 'Int/90', 'Pas %', 'Poss Won/90', 'Hdrs W/90', 'xA/90',
-    'Saves/90', 'xSv %', 'xGP/90', 'Sprints/90'
+    'xG', 'Shot/90', 'ShT', 'NP-xG/90',
+    'Pressure Success %', 'Poss Lost/90',
+    'Drb/90', 'xA/90', 'Pr passes/90',
+    'Sprints/90', 'Key Passes/90',
+    'Pas %', 'Tck/90', 'Poss Won/90',
+    'Pressures/90', 'Int/90', 'Clr/90',
+    'Saves/90', 'xSv %', 'xGP/90'
     ]
-    preprocess_columns(squad_rawdata, columns_to_preprocess)
-    for col in ['Mins', 'Shot/90', 'ShT']:
-        squad_rawdata[col] = pd.to_numeric(squad_rawdata[col], errors='coerce')
 
-    # 3) Compute raw Shots & Shot %
-    squad_rawdata['Shots']  = squad_rawdata['Shot/90'] * (squad_rawdata['Mins'] / 90)
-    squad_rawdata['Shot %'] = squad_rawdata['ShT'] / squad_rawdata['Shots'] * 100
-
+    
     squad_rawdata = calculate_player_scores(squad_rawdata)
-    role_metric_map = {
-    "CF": ["xG", "xA/90", "Shot %"],  # link-up + chance taker
-    "TQ": ["xA/90", "Key Passes/90", "NP-xG/90"],  # creative output & space-finding
-    "AM": ["Pas %", "xA/90", "Tck/90"],  # more structured than SS — needs control + support
-    "REG": ["Pr passes/90", "Drb/90", "Tck/90"],  # advanced DLP that carries + presses
-    "BWM": ["Tck/90", "Int/90", "Pas %"],  # destroyer metrics + basic ball use
-    "BPD": ["Pas %", "Tck/90", "Hdrs W/90"],  # progressive but responsible
-    "FB": ["Tck/90", "Int/90", "Pr passes/90"],  # very attacking fullback
-    "WBR": ["Drb/90", "Pr passes/90", "Tck/90"], 
-    "SK": ["xSv %", "xGP/90", "Saves/90"]  # core modern keeper metrics
+    "AF": ["xG", "Shot/90", "ShT", "NP-xG/90", "Pressure Success %", "Poss Lost/90"],
+    "W": ["Drb/90", "xA/90", "ShT", "Pr passes/90", "Sprints/90", "Key Passes/90", "Poss Lost/90"],
+    "CM": ["Pr passes/90", "Pas %", "Tck/90", "xA/90", "Poss Won/90", "Key Passes/90", "Pressures/90", "Poss Lost/90"],
+    "HB": ["Tck/90", "Int/90", "Pas %", "Poss Won/90", "Clr/90", "Pressures/90", "Poss Lost/90"],
+    "L": ["Pr passes/90", "Tck/90", "Int/90", "Pas %", "Clr/90", "Pressures/90", "Poss Lost/90"],
+    "IFB": ["Pr passes/90", "Tck/90", "Int/90", "Pas %", "Poss Won/90", "Pressures/90", "Poss Lost/90"],
+    "SK": ["Saves/90", "xSv %", "xGP/90", "Pas %", "Clr/90"]
 }
 
-
-    squad_rawdata = apply_smartboost_to_all_roles(squad_rawdata, role_metric_map)
     html_content = generate_html(squad_rawdata[['Transfer Value', 'Position', 'Name', 'Age',
-        'SK', 'SK_adj', 'FB', 'FB_adj','WBR','WBR_adj', 'BPD', 'BPD_adj', 'BWM', 'BWM_adj', 'REG', 'REG_adj', 'AM', 'AM_adj', 'TQ', 'TQ_adj', 'CF', 'CF_adj',
+        'SK', 'IFB', 'L', 'HB', 'CM', 'W', 'AF',
         'Height', 'Club','Salary']])
-    #Remove "'Salary After Tax'" when running from 'shortlist'
     save_and_open_html(html_content, new_directory)
     delete_files(destination_directory)
 
