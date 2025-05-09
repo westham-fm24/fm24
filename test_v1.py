@@ -162,7 +162,6 @@ def preprocess_columns(df, cols):
 
 def calculate_player_scores(df):
     roles_weights = {
-   roles_weights = {
         "AF": {
     "Acc": 100, "Pac": 100, "Ant": 90, "Cmp": 50, "Dec": 90,
     "Dri": 90, "Fin": 100, "Fir": 90, "OtB": 100, "Tec": 90,
