@@ -161,7 +161,58 @@ def preprocess_columns(df, cols):
         df[c] = df[c].apply(handle_range)
 
 def calculate_player_scores(df):
-    roles_weights = { /* your existing roles_weights dict */ }
+    roles_weights = {
+   roles_weights = {
+        "AF": {
+    "Acc": 100, "Pac": 100, "Ant": 90, "Cmp": 50, "Dec": 90,
+    "Dri": 90, "Fin": 100, "Fir": 90, "OtB": 100, "Tec": 90,
+    "Pas": 50, "Str": 50, "Agg": 90, "Sta": 90, "Wor": 90,
+    "Vis": 50, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 0, "Tck": 0
+  },
+        "W": {
+    "Acc": 100, "Pac": 100, "Ant": 90, "Cmp": 50, "Dec": 90,
+    "Dri": 100, "Fin": 50, "Fir": 90, "OtB": 90, "Tec": 90,
+    "Pas": 90, "Str": 50, "Agg": 50, "Sta": 100, "Wor": 90,
+    "Vis": 90, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 50, "Mar": 20, "Tck": 20
+  },
+        "CM": {
+    "Acc": 90, "Pac": 90, "Ant": 90, "Cmp": 100, "Dec": 100,
+    "Dri": 50, "Fin": 20, "Fir": 90, "OtB": 90, "Tec": 90,
+    "Pas": 100, "Str": 50, "Agg": 50, "Sta": 90, "Wor": 90,
+    "Vis": 90, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 20, "Mar": 20, "Tck": 90
+  },
+        "HB": {
+    "Acc": 50, "Pac": 50, "Ant": 90, "Cmp": 90, "Dec": 100,
+    "Dri": 20, "Fin": 0, "Fir": 90, "OtB": 50, "Tec": 50,
+    "Pas": 90, "Str": 90, "Agg": 50, "Sta": 90, "Wor": 100,
+    "Vis": 50, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 90, "Tck": 100
+  },
+        "L": {
+    "Acc": 90, "Pac": 90, "Ant": 100, "Cmp": 100, "Dec": 100,
+    "Dri": 90, "Fin": 0, "Fir": 90, "OtB": 90, "Tec": 90,
+    "Pas": 100, "Str": 90, "Agg": 50, "Sta": 90, "Wor": 90,
+    "Vis": 90, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 0, "Mar": 90, "Tck": 90
+  },
+        "IFB": {
+    "Acc": 90, "Pac": 90, "Ant": 90, "Cmp": 90, "Dec": 90,
+    "Dri": 90, "Fin": 0, "Fir": 90, "OtB": 90, "Tec": 90,
+    "Pas": 90, "Str": 70, "Agg": 50, "Sta": 100, "Wor": 100,
+    "Vis": 70, "Cmd": 0, "Ref": 0, "1v1": 0, "TRO": 0,
+    "Kic": 0, "Thr": 0, "Cor": 20, "Mar": 50, "Tck": 90
+  },
+        "SK": {
+    "Acc": 90, "Pac": 50, "Ant": 90, "Cmp": 90, "Dec": 90,
+    "Dri": 50, "Fin": 0, "Fir": 90, "OtB": 0, "Tec": 50,
+    "Pas": 90, "Str": 70, "Agg": 20, "Sta": 50, "Wor": 50,
+    "Vis": 70, "Cmd": 90, "Ref": 100, "1v1": 100, "TRO": 90,
+    "Kic": 50, "Thr": 90, "Cor": 0, "Mar": 0, "Tck": 0
+}
+    }
     for role, weights in roles_weights.items():
         total_w = sum(weights.values())
         def comp(row):
@@ -193,7 +244,22 @@ def main():
     move_files(source_directory, destination_directory)
     squad = load_latest_file(destination_directory)
 
-    cols_to_prep = [  'Acc', 'Wor', …, 'xGP/90' ]  # full list
+    cols_to_prep = [
+    'Acc', 'Wor', 'Vis', 'Thr', 'Tec', 'Tea', 'Tck', 'Str', 'Sta', 'TRO', 'Ref',
+    'Pun', 'Pos', 'Pen', 'Pas', 'Pac', '1v1', 'OtB', 'Nat', 'Mar', 'L Th', 'Lon',
+    'Ldr', 'Kic', 'Jum', 'Hea', 'Han', 'Fre', 'Fla', 'Fir', 'Fin', 'Ecc', 'Dri',
+    'Det', 'Dec', 'Cro', 'Cor', 'Cnt', 'Cmp', 'Com', 'Cmd', 'Bra', 'Bal', 'Ant',
+    'Agi', 'Agg', 'Aer',
+
+    # Added performance metrics
+    'xG', 'Shot/90', 'ShT', 'NP-xG/90',
+    'Pressure Success %', 'Poss Lost/90',
+    'Drb/90', 'xA/90', 'Pr passes/90',
+    'Sprints/90', 'Key Passes/90',
+    'Pas %', 'Tck/90', 'Poss Won/90',
+    'Pressures/90', 'Int/90', 'Clr/90',
+    'Saves/90', 'xSv %', 'xGP/90'
+    ]
     preprocess_columns(squad, cols_to_prep)
 
     squad = calculate_player_scores(squad)
