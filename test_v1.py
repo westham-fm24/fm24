@@ -85,17 +85,6 @@ ideal_performance_metrics = {}
 for d in (af_metrics, w_metrics, cm_metrics, hb_metrics, l_metrics, ifb_metrics, sk_metrics):
     ideal_performance_metrics.update(d)
 
-# ─── Map roles to their performance metrics ─────────────────────────────────
-role_performance_metrics = {
-    "AF":  ["xG","Shot/90","ShT","NP-xG/90","Pressure Success %","Poss Lost/90"],
-    "W":   ["Drb/90","xA/90","ShT","Pr passes/90","Sprints/90","Key Passes/90","Poss Lost/90"],
-    "CM":  ["Pr passes/90","Pas %","Tck/90","xA/90","Poss Won/90","Key Passes/90","Pressures/90","Poss Lost/90"],
-    "HB":  ["Tck/90","Int/90","Pas %","Poss Won/90","Clr/90","Pressures/90","Poss Lost/90"],
-    "L":   ["Pr passes/90","Tck/90","Int/90","Pas %","Clr/90","Pressures/90","Poss Lost/90"],
-    "IFB": ["Pr passes/90","Tck/90","Int/90","Pas %","Poss Won/90","Pressures/90","Poss Lost/90"],
-    "SK":  ["Saves/90","xSv %","xGP/90","Pas %","Clr/90"]
-}
-
 # ─── Helper functions ───────────────────────────────────────────────────────
 def evaluate_metric_quality(value, thresholds):
     if pd.isna(value):
@@ -111,6 +100,17 @@ def evaluate_metric_quality(value, thresholds):
             if low <= value <= high:
                 return quality
     return None
+
+# ─── Map roles to their performance metrics ─────────────────────────────────
+role_performance_metrics = {
+    "AF":  ["xG","Shot/90","ShT","NP-xG/90","Pressure Success %","Poss Lost/90"],
+    "W":   ["Drb/90","xA/90","ShT","Pr passes/90","Sprints/90","Key Passes/90","Poss Lost/90"],
+    "CM":  ["Pr passes/90","Pas %","Tck/90","xA/90","Poss Won/90","Key Passes/90","Pressures/90","Poss Lost/90"],
+    "HB":  ["Tck/90","Int/90","Pas %","Poss Won/90","Clr/90","Pressures/90","Poss Lost/90"],
+    "L":   ["Pr passes/90","Tck/90","Int/90","Pas %","Clr/90","Pressures/90","Poss Lost/90"],
+    "IFB": ["Pr passes/90","Tck/90","Int/90","Pas %","Poss Won/90","Pressures/90","Poss Lost/90"],
+    "SK":  ["Saves/90","xSv %","xGP/90","Pas %","Clr/90"]
+}
 
 def adjust_player_scores(df, performance_thresholds, role_metrics, quality_factors=None):
     if quality_factors is None:
