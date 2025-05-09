@@ -124,8 +124,8 @@ role_performance_metrics = {
 def adjust_player_scores(df, performance_thresholds, role_metrics, quality_factors=None):
     if quality_factors is None:
         quality_factors = {
-            'Elite':1.5,
-            'Good':1.1,
+            'Elite':1.8,
+            'Good':1.5,
             'Average':1.0,
             None: 0.8
         }
